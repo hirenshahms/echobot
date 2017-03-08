@@ -13,11 +13,34 @@ var botConnectorOptions = {
 var connector = new builder.ChatConnector(botConnectorOptions);
 var bot = new builder.UniversalBot(connector);
 
-bot.dialog('/', function (session) {
+//bot.dialog('/', function (session) {
     
     //respond with user's message
-    session.send("You said " + session.message.text);
-});
+  //  session.send("You said " + session.message.text);
+//});
+
+//=========================================================
+// Bots Dialogs
+//=========================================================
+
+//bot.dialog('/', function (session) {
+//    session.send("Hello World");
+//});
+
+//
+// LUIS Integration
+//
+
+// Create LUIS recognizer that points at our model and add it as the root '/' dialog for our Cortana Bot.
+var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/384145fc-8d4b-4e8a-9d1e-796d2f5e86f3?subscription-key=5cee307472f44e8db7e26968ae4a0f8b&verbose=true';
+var recognizer = new builder.LuisRecognizer(model);
+var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
+bot.dialog('/', dialog);
+
+// Add intent handlers
+dialog.matches('KPI', builder.DialogAction.send('You asked about a KPI!'));
+dialog.matches('None', builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
+dialog.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 
 // Setup Restify Server
 var server = restify.createServer();
