@@ -5,8 +5,8 @@ var builder = require('botbuilder');
 var botConnectorOptions = { 
     //appId: process.env.BOTFRAMEWORK_APPID, 
     //appPassword: process.env.BOTFRAMEWORK_APPSECRET
-    appId: '12345', 
-    appPassword: '12345'
+    //appId: '12345', 
+    //appPassword: '12345'
 };
 
 // Create bot
