@@ -42,9 +42,7 @@ bot.dialog('/', dialog);
 //dialog.matches('KPI', builder.DialogAction.send('You asked about a KPI!'));
 dialog.matches('KPI', [
    
-    function (session, args, next) {
-    	var address = JSON.stringify(session.message.address);
-	session.send("User Address: " + address);	    
+    function (session, args, next) {   
 
         if (!session.userData.name) {
             session.beginDialog('/costcenter');
