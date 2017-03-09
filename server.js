@@ -43,6 +43,9 @@ bot.dialog('/', dialog);
 dialog.matches('KPI', [
    
     function (session, args, next) {
+    	var address = JSON.stringify(session.message.address);
+	session.send("User Address: " + address);	    
+
         if (!session.userData.name) {
             session.beginDialog('/costcenter');
         } else {
