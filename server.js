@@ -1,5 +1,6 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+var api = require('./apiutil');
 
 // Get secrets from server environment
 var botConnectorOptions = { 
@@ -38,7 +39,15 @@ var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 bot.dialog('/', dialog);
 
 // Add intent handlers
-dialog.matches('KPI', builder.DialogAction.send('You asked about a KPI!'));
+//dialog.matches('KPI', builder.DialogAction.send('You asked about a KPI!'));
+dialog.matches('KPI', function (session) {
+   session.send("Please wait while I retrieve your KPI.");
+   api.getKpis(session, 'Cost');
+//    api.getKpis(session, 'Cost YTD');
+//    api.getKpis(session, 'Current FY Plan Remaining');
+//    api.getKpis(session, '% Variable');
+//    api.getKpis(session, '% Capital Spend');
+});
 dialog.matches('None', builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 dialog.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 

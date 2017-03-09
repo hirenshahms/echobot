@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/fuselabs/echobot#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "botbuilder": "^3.6.0",
     "restify": "^4.3.0"
   }
