@@ -50,7 +50,6 @@ dialog.matches('KPI', [
         }
     },
     function (session, results) {
-        session.send("Please wait while I retrieve your KPI.");
 	session.send("Your variance is " + api.getKpis(session, 'Cost'));
 	}
 ]);
