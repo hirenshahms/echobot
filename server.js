@@ -40,14 +40,40 @@ bot.dialog('/', dialog);
 
 // Add intent handlers
 //dialog.matches('KPI', builder.DialogAction.send('You asked about a KPI!'));
-dialog.matches('KPI', function (session) {
-   session.send("Please wait while I retrieve your KPI.");
-   api.getKpis(session, 'Cost');
+dialog.matches('KPI', [
+   
+    function (session, args, next) {
+        if (!session.userData.name) {
+            session.beginDialog('/costcenter');
+        } else {
+            next();
+        }
+    },
+    function (session, results) {
+        session.send("Please wait while I retrieve your KPI.");
+	session.send("Your variance is " + api.getKpis(session, 'Cost'));
+	}
+]);
+
+bot.dialog('/costcenter', [
+    function (session) {
+        builder.Prompts.text(session, "Hiren, I would be happy to get that for you. Can you please tell me your cost center?");
+    },
+    function (session, results) {
+	session.send("I will get it for you now and remember that Cost Center for future reviews.");
+        session.endDialogWithResult(results);
+    }
+]);      
+	       
+	       //function (session) {
+   //session.send("Please wait while I retrieve your KPI.");
+   //api.getKpis(session, 'Cost');
 //    api.getKpis(session, 'Cost YTD');
 //    api.getKpis(session, 'Current FY Plan Remaining');
 //    api.getKpis(session, '% Variable');
 //    api.getKpis(session, '% Capital Spend');
-});
+//});
+
 dialog.matches('None', builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 dialog.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 
