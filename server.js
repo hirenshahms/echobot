@@ -79,6 +79,18 @@ bot.dialog('/costcenter', [
 dialog.matches('None', builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 dialog.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only fetch KPIs!"));
 
+// Setup Restify Server
+var server = restify.createServer();
+
+// Handle Bot Framework messages
+server.post('/api/messages', connector.listen());
+
+// Serve a static web page
+server.get(/.*/, restify.serveStatic({
+	'directory': '.',
+	'default': 'index.html'
+}));
+
 server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.Parse('{"id":"6ba09821805c443ba54aa27c082b7ee8","channelId":"slack","user":{"id":"U4FPSE0UC:T4FLMJ675","name":"hshah"},"conversation":{"isGroup":false,"id":"B4F2ZNURX:T4FLMJ675:D4F24VB88"},"bot":{"id":"B4F2ZNURX:T4FLMJ675","name":"apptiobot"},"serviceUrl":"https://slack.botframework.com","useAuth":true}');
@@ -94,18 +106,6 @@ server.post('/api/notify', function (req, res) {
         res.end();
     });
 });
-
-// Setup Restify Server
-var server = restify.createServer();
-
-// Handle Bot Framework messages
-server.post('/api/messages', connector.listen());
-
-// Serve a static web page
-server.get(/.*/, restify.serveStatic({
-	'directory': '.',
-	'default': 'index.html'
-}));
 
 server.listen(process.env.port || 3978, function () {
     console.log('%s listening to %s', server.name, server.url); 
