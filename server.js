@@ -51,7 +51,7 @@ dialog.matches('KPI', [
         }
     },
     function (session, results) {
-	api.getKpis(session, 'Cost');
+	api.getKpis(session, '% Variable');
 	}
 ]);
 
