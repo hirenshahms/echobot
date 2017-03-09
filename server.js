@@ -93,7 +93,7 @@ server.get(/.*/, restify.serveStatic({
 
 server.post('/api/notify', function (req, res) {
     // Process posted notification
-    var address = JSON.Parse('{"id":"6ba09821805c443ba54aa27c082b7ee8","channelId":"slack","user":{"id":"U4FPSE0UC:T4FLMJ675","name":"hshah"},"conversation":{"isGroup":false,"id":"B4F2ZNURX:T4FLMJ675:D4F24VB88"},"bot":{"id":"B4F2ZNURX:T4FLMJ675","name":"apptiobot"},"serviceUrl":"https://slack.botframework.com","useAuth":true}');
+    var address = JSON.parse('{"id":"6ba09821805c443ba54aa27c082b7ee8","channelId":"slack","user":{"id":"U4FPSE0UC:T4FLMJ675","name":"hshah"},"conversation":{"isGroup":false,"id":"B4F2ZNURX:T4FLMJ675:D4F24VB88"},"bot":{"id":"B4F2ZNURX:T4FLMJ675","name":"apptiobot"},"serviceUrl":"https://slack.botframework.com","useAuth":true}');
     var notification ='March data has been loaded and verified in Apptio. You can begin your financial review!';
 
     // Send notification as a proactive message
