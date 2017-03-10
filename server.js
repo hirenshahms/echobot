@@ -50,7 +50,7 @@ dialog.matches('KPI', [
          kpi: kpi
         };
 	    
-	if (kpi != null ) && (kpi.entity === 'cost variance')
+	if ((kpi != null ) && (kpi.entity === 'cost variance'))
 	{
         	session.beginDialog('/costcenter');
 	}
@@ -77,7 +77,7 @@ dialog.matches('KPI', [
 			query = '% Variable';
 			api.getKpis(session, query);
 		}
-		else if (kpi === 'capital spend') || ((kpi === 'capital cost'))
+		else if ((kpi === 'capital spend') || (kpi === 'capital cost'))
 		{
 			query = '% Capital Spend';
 			api.getKpis(session, query);
