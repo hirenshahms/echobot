@@ -54,6 +54,10 @@ dialog.matches('KPI', [
 	{
         	session.beginDialog('/costcenter');
 	}
+	else
+	{
+		next();
+	}
     },
     function (session, results) {
 	
