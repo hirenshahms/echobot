@@ -65,12 +65,12 @@ dialog.matches('KPI', [
 		query = 'Cost';
 		api.getKpis(session, query);
 	}
-	else (kpi === 'variable cost')
+	else if (kpi === 'variable cost')
 	{
 		query = '% Variable';
 		api.getKpis(session, query);
 	}
-	else (kpi === 'capital spend') || ((kpi === 'capital cost'))
+	else if (kpi === 'capital spend') || ((kpi === 'capital cost'))
 	{
 		query = '% Capital Spend';
 		api.getKpis(session, query);
