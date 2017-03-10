@@ -48,7 +48,7 @@ dialog.matches('KPI', [
         var kpi = builder.EntityRecognizer.findEntity(args.entities, 'KPI');
 
         var entity = session.dialogData.Entity = {
-          kpi: kpi ? kpi.entity : null
+          kpi: kpi ? args : null
         };
         	    
         session.beginDialog('/costcenter');
@@ -113,3 +113,4 @@ server.post('/api/notify', function (req, res) {
 server.listen(process.env.port || 3978, function () {
     console.log('%s listening to %s', server.name, server.url); 
 });
+a
