@@ -1,7 +1,7 @@
 var request = require('bluebird').promisifyAll(require('request'));
 
 var url = 'https://products-r12.apptio.com/biit/api/v2/domains/reference.apptio.com/projects/Cost Transparency/reports/33d03665-aafd-4931-bed9-832ac55c64f1/dates/Jun:FY2016/components/4157';
-var auth = 'auth=N7NdQyurwdMYkY1Zx4w6Jg';
+var auth = 'auth=QMCxClS9K1a67fknDaz8dQ';
 
 module.exports = {
 
