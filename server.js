@@ -45,15 +45,15 @@ dialog.matches('KPI', [
     function (session, args, next) {   
 	    
 	// Resolve and store any entities passed from LUIS.
-        var kpi = builder.EntityRecognizer.findEntity(args.entities, 'KPI');
-        var data = session.dialogData.Data = {
-          kpi: kpi
-        };
+        //var kpi = builder.EntityRecognizer.findEntity(args.entities, 'KPI');
+        //var data = session.dialogData.Data = {
+         // kpi: kpi
+        //};
         	    
         session.beginDialog('/costcenter');
     },
     function (session, results) {
-	session.send("kpi value is " + session.dialogData.Data.kpi.entity);	
+	//session.send("kpi value is " + session.dialogData.Data.kpi.entity);	
 	api.getKpis(session, 'Cost');
 	}
 ]);
