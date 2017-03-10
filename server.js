@@ -46,7 +46,7 @@ dialog.matches('KPI', [
              session.beginDialog('/costcenter');
     },
     function (session, results) {
-	api.getKpis(session, '% Variable');
+	api.getKpis(session, 'Cost');
 	}
 ]);
 
