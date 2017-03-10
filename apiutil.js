@@ -5,7 +5,7 @@ var auth = 'auth=-lx5lc58plhT3op71Z0IfQ';
 
 module.exports = {
 
-    getKpis(session, kpiType)
+    getKpis(session, kpiType, kpi)
     {
         request.getAsync({
                 url: url,
@@ -25,7 +25,7 @@ module.exports = {
                    var kpi = response.body.kpis.filter(function(kp){
                                 return (kp.primaryTitle  === kpiType);
                     });
-                    session.send("Your variance is " + kpi[0].primaryValue);
+                    session.send("Your " + kpi " is " + kpi[0].primaryValue);
                     //session.send(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     console.log(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     
