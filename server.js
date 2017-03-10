@@ -57,7 +57,7 @@ dialog.matches('KPI', [
     },
     function (session, results) {
 	
-	var query = '';
+	var query = 'Cost';
 	    
 	if (session.dialogData.Data.kpi == null)
 	{
