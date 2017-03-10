@@ -57,7 +57,7 @@ dialog.matches('KPI', [
 
 bot.dialog('/costcenter', [
     function (session) {
-        builder.Prompts.text(session, "Hiren, I would be happy to get that for you. Can you please tell me your cost center?");
+        builder.Prompts.text(session, "I would be happy to get that for you. Can you please tell me your cost center?");
     },
     function (session, results) {
 	session.send("I will get it for you now and remember that Cost Center for future reviews.");
