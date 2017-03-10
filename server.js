@@ -70,17 +70,17 @@ dialog.matches('KPI', [
 		if (kpi === 'cost variance')
 		{
 			query = 'Cost';
-			api.getKpis(session, query);
+			api.getKpis(session, query, kpi);
 		}
 		else if (kpi === 'variable cost')
 		{
 			query = '% Variable';
-			api.getKpis(session, query);
+			api.getKpis(session, query, kpi);
 		}
 		else if ((kpi === 'capital spend') || (kpi === 'capital cost'))
 		{
 			query = '% Capital Spend';
-			api.getKpis(session, query);
+			api.getKpis(session, query, kpi);
 		}
 		else
 		{
