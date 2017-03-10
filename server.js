@@ -43,12 +43,7 @@ bot.dialog('/', dialog);
 dialog.matches('KPI', [
    
     function (session, args, next) {   
-
-        if (!session.userData.name) {
-            session.beginDialog('/costcenter');
-        } else {
-            next();
-        }
+             session.beginDialog('/costcenter');
     },
     function (session, results) {
 	api.getKpis(session, '% Variable');
