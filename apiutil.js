@@ -30,7 +30,7 @@ module.exports = {
                     console.log(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     
                 } else {
-                    session.send("Opps! KPI is not available at this time. I received this error!" + response.statusCode);
+                    session.send("Opps! KPI is not available at this time. I received this error: " + response.statusCode);
                     console.log('response code: ' + response.statusCode);
                 }
 
