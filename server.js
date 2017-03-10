@@ -49,12 +49,37 @@ dialog.matches('KPI', [
         var data = session.dialogData.Data = {
          kpi: kpi
         };
-        	    
-        session.beginDialog('/costcenter');
+	    
+	if (kpi.entity === 'cost variance')
+	{
+        	session.beginDialog('/costcenter');
+	}
     },
     function (session, results) {
-	session.send("kpi value is " + session.dialogData.Data.kpi.entity);	
-	api.getKpis(session, 'Cost');
+	
+	var query = '';
+	var kpi = session.dialogData.Data.kpi.entity;
+	    
+	if (kpi === 'cost variance')
+	{
+		query = 'Cost';
+		api.getKpis(session, query);
+	}
+	else (kpi === 'variable cost')
+	{
+		query = '% Variable';
+		api.getKpis(session, query);
+	}
+	else (kpi === 'capital spend') || ((kpi === 'capital cost'))
+	{
+		query = '% Capital Spend';
+		api.getKpis(session, query);
+	}
+	else
+	{
+		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
+	}
+	   	
 	}
 ]);
 
