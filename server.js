@@ -54,7 +54,8 @@ dialog.matches('KPI', [
         session.beginDialog('/costcenter');
     },
     function (session, results) {
-	session.send(session.dialogData.Entity.kpi);
+	session.send("kpi value is " + session.dialogData.Entity.kpi);
+	
 	api.getKpis(session, 'Cost');
 	}
 ]);
