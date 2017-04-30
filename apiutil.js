@@ -1,10 +1,10 @@
 var request = require('bluebird').promisifyAll(require('request'));
 
-var url = 'https://products-r12.apptio.com/biit/api/v2/domains/reference.apptio.com/projects/Cost Transparency/reports/33d03665-aafd-4931-bed9-832ac55c64f1/dates/Jun:FY2016/components/4157';
+var url = 'https://508c-r12.apptio.com/biit/api/v2/domains/reference.apptio.com/projects/Cost Transparency/reports/33d03665-aafd-4931-bed9-832ac55c64f1/dates/Jun:FY2016/components/4157';
 //var auth = 'auth=EoGro2e6jLji5gHGdKaUZQ';
 
-var username = 'hshah';
-var password = 'Cob125695';
+var username = 'dan@reference.apptio.com';
+var password = 'Apptio508!';
 var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 module.exports = {
