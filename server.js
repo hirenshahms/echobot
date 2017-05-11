@@ -60,6 +60,20 @@ dialog.matches('KPI', [
 	}*/
 	    
 	session.send('I am working on this ...');
+	var query = 'Cost';
+	    
+	if (session.dialogData.Data.kpi === null)
+	{
+		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
+	}
+	else
+	{	    
+		var kpi = session.dialogData.Data.kpi.entity;
+		
+		session.send('You asked about ' + kpi + '. I am fetching that information...');
+		
+		api.getKpis(session, kpi);		
+	}
 	
     },
     function (session, results) {
