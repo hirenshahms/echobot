@@ -59,7 +59,7 @@ dialog.matches('KPI', [
 		next();
 	}*/
 	    
-	session.send('I am working on this ...');
+	//session.send('I am working on this ...');
 	var query = 'Cost';
 	    
 	if (session.dialogData.Data.kpi === null)
