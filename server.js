@@ -59,7 +59,7 @@ dialog.matches('KPI', [
 		next();
 	}*/
 	    
-	next();   
+	
     },
     function (session, results) {
 	
