@@ -58,6 +58,8 @@ dialog.matches('KPI', [
 	{
 		next();
 	}*/
+	    
+	session.endDialogWithResult(results);   
     },
     function (session, results) {
 	
@@ -99,14 +101,14 @@ dialog.matches('KPI', [
 	}
 ]);
 
-bot.dialog('/costcenter', [
+/*bot.dialog('/costcenter', [
     function (session) {
         builder.Prompts.text(session, "I would be happy to get that for you. Please wait while I ");
     },
     function (session, results) {
 	session.send("I will get it for you now and remember that Cost Center for future reviews.");
         session.endDialogWithResult(results);
-    }
+    }*/
 ]);      
 	       
 	       //function (session) {
