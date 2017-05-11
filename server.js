@@ -108,8 +108,8 @@ dialog.matches('KPI', [
     function (session, results) {
 	session.send("I will get it for you now and remember that Cost Center for future reviews.");
         session.endDialogWithResult(results);
-    }*/
-]);      
+    }
+]);*/      
 	       
 	       //function (session) {
    //session.send("Please wait while I retrieve your KPI.");
