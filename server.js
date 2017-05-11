@@ -59,13 +59,13 @@ dialog.matches('KPI', [
 		next();
 	}*/
 	    
-	session.endDialogWithResult(results);   
+	next();   
     },
     function (session, results) {
 	
 	var query = 'Cost';
 	    
-	if (session.dialogData.Data.kpi == null)
+	if (session.dialogData.Data.kpi === null)
 	{
 		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
 	}
