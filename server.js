@@ -49,8 +49,11 @@ dialog.matches('KPI', [
         var data = session.dialogData.Data = {
          kpi: kpi
         };
-	    
-	/*if ((kpi != null )
+	
+	var date = builder.EntityRecognizer.findEntity(args.entities, 'builtin.datetime.date');
+        session.dialogData.Data.date = date;
+
+	    /*if ((kpi != null )
 	{
         	session.beginDialog('/costcenter');
 	}
@@ -66,13 +69,18 @@ dialog.matches('KPI', [
 	{
 		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
 	}
+	else (session.dialogData.Data.date === null || session.dialogData.Data.date === undefined)
+	{
+		session.send('I know you are asking about a KPI. However you also need to specify a time period. Please specify a time period and try again');
+	}
 	else
 	{	    
 		var kpi = session.dialogData.Data.kpi.entity;
+		var dateval = session.dialogData.Data.date.resolution.date;
 		
-		session.send('You asked about ' + kpi + '. I am fetching that information...');
+		session.send('You asked about ' + kpi + ' for ' + dateval + '. I am fetching that information...');
 		
-		api.getKpis(session, kpi);		
+		api.getKpis(session, kpi, dateval);		
 	}
 	
     },
