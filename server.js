@@ -52,24 +52,12 @@ dialog.matches('KPI', [
 	
 	var date = builder.EntityRecognizer.findEntity(args.entities, 'builtin.datetime.date');
         session.dialogData.Data.date = date;
-
-	    /*if ((kpi != null )
-	{
-        	session.beginDialog('/costcenter');
-	}
-	else
-	{
-		next();
-	}*/
-	    
-	//session.send('I am working on this ...');
-	var query = 'Cost';
 	    
 	if (session.dialogData.Data.kpi === null)
 	{
 		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
 	}
-	else (session.dialogData.Data.date === null || session.dialogData.Data.date === undefined)
+	else if (session.dialogData.Data.date === null || session.dialogData.Data.date === undefined)
 	{
 		session.send('I know you are asking about a KPI. However you also need to specify a time period. Please specify a time period and try again');
 	}
