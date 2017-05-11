@@ -1,7 +1,8 @@
 var request = require('bluebird').promisifyAll(require('request'));
 
-var url = 'https://508c-r12.apptio.com/biit/api/v2/domains/reference.apptio.com/projects/Cost Transparency/reports/33d03665-aafd-4931-bed9-832ac55c64f1/dates/Jun:FY2016/components/4157';
+//var url = 'https://508c-r12.apptio.com/biit/api/v2/domains/reference.apptio.com/projects/Cost Transparency/reports/33d03665-aafd-4931-bed9-832ac55c64f1/dates/Jun:FY2016/components/4157';
 //var auth = 'auth=EoGro2e6jLji5gHGdKaUZQ';
+var url = 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd';
 
 var username = 'dan@reference.apptio.com';
 var password = 'Apptio508!';
