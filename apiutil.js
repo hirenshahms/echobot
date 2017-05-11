@@ -8,6 +8,8 @@ var kpiDictionary = {
     'total spend' : 'Cost',
     'opex spend' : 'Cost',
     'opex cost' : 'Cost',
+    'it opex spend' : 'Cost',
+    'it opex cost' : 'Cost',
     'opex' : 'Cost',
     'overall cost' : 'Cost',
     'variable cost': '% Variable',
