@@ -11,8 +11,15 @@ var kpiDictionary = {
     'variable spend': '% Variable',
     'capital cost': '% Capital Spend',
     'capital spend': '% Capital Spend',
-    'cloud cost' : 'Total',
-    'cloud spend' : 'Total'  
+    'cloud cost' : 'cloud cost',
+    'cloud spend' : 'cloud cost'  
+};
+
+var titleDictionary = {
+        'Cost': 'Cost',
+        '% Variable' : '% Variable'
+        '% Capital Spend': '% Capital Spend',
+        'cloud cost': 'Cost YTD'
 };
 
 var urlDictionary =
@@ -20,8 +27,10 @@ var urlDictionary =
         'Cost':'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd',
         '% Variable' : 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd',
         '% Capital Spend': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd',
-        'Total': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3APublic+Cloud+-+TCO&date=Feb:FY2017&componentId=4583&environment=prd'
+        'cloud cost': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3APublic+Cloud+-+TCO&date=Feb:FY2017&componentId=4583&environment=prd'
     };
+
+
 
 var username = 'dan@reference.apptio.com';
 var password = 'Apptio508!';
@@ -68,7 +77,7 @@ module.exports = {
                 if (response.statusCode  === 200) {
 
                    var kpi = response.body.kpis.filter(function(kp){
-                                return (kp.primaryTitle  === normalizedKpi);
+                                return (kp.primaryTitle  === titleDictionary[normalizedKpi]);
                     });
                     session.send("Your " + kpiTitle + " is " + kpi[0].primaryValue);
                     //session.send(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
