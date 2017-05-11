@@ -6,6 +6,8 @@ var request = require('bluebird').promisifyAll(require('request'));
 var kpiDictionary = {
     'total cost' : 'Cost',
     'total spend' : 'Cost',
+    'opex spend' : 'Cost',
+    'opex' : 'Cost',
     'overall cost' : 'Cost',
     'variable cost': '% Variable',
     'variable spend': '% Variable',
