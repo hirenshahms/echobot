@@ -59,7 +59,8 @@ dialog.matches('KPI', [
 		next();
 	}*/
 	    
-	
+	session.send('I am working on this ...');
+	session.endDialogWithResult(results);
     },
     function (session, results) {
 	
