@@ -12,7 +12,7 @@ var kpiDictionary = {
     'capital cost': '% Capital Spend',
     'capital spend': '% Capital Spend',
     'cloud cost' : 'Total',
-    'cloud spend' : 'Total',   
+    'cloud spend' : 'Total'  
 };
 
 var urlDictionary =
