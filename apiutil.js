@@ -7,6 +7,7 @@ var kpiDictionary = {
     'total cost' : 'Cost',
     'total spend' : 'Cost',
     'opex spend' : 'Cost',
+    'opex cost' : 'Cost',
     'opex' : 'Cost',
     'overall cost' : 'Cost',
     'variable cost': '% Variable',
