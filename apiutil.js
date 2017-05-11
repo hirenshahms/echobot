@@ -17,7 +17,7 @@ var kpiDictionary = {
 
 var titleDictionary = {
         'Cost': 'Cost',
-        '% Variable' : '% Variable'
+        '% Variable' : '% Variable',
         '% Capital Spend': '% Capital Spend',
         'cloud cost': 'Cost YTD'
 };
