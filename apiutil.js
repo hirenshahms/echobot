@@ -45,7 +45,7 @@ module.exports = {
         
         //session.send('normalizedKpi is ' + normalizedKpi);
         
-        if (normalizedKpi === null)
+        if (normalizedKpi === null || normalizedKpi === undefined)
         {
             session.send("Oops! I could not find this KPI");
             return 'Error';
@@ -55,7 +55,7 @@ module.exports = {
         
         //session.send('url is ' + url);
         
-        if (url === null)
+        if (url === null || url === undefined)
         {
             session.send("Oops! I could not find this KPI");
             return 'Error';
