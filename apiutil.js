@@ -41,7 +41,7 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 module.exports = {
 
-    getKpis(session, kpiTitle)
+    getKpis(session, kpiTitle, date)
     {
         var normalizedKpi = kpiDictionary[kpiTitle];
         
