@@ -26,9 +26,9 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 module.exports = {
 
-    getKpis(session, kpi)
+    getKpis(session, kpiTitle)
     {
-        var normalizedKpi = kpiDictionary[kpi];
+        var normalizedKpi = kpiDictionary[kpiTitle];
         
         session.send('normalizedKpi is ' + normalizedKpi);
         
@@ -67,7 +67,7 @@ module.exports = {
                    var kpi = response.body.kpis.filter(function(kp){
                                 return (kp.primaryTitle  === normalizedKpi);
                     });
-                    session.send("Your " + kpi + " is " + kpi[0].primaryValue);
+                    session.send("Your " + kpiTitle + " is " + kpi[0].primaryValue);
                     //session.send(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     console.log(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     
