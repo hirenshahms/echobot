@@ -32,7 +32,7 @@ module.exports = {
         
         if (normalizedKpi === null)
         {
-            session.send("Oops! I could not find this KPI);
+            session.send("Oops! I could not find this KPI');
             return 'Error';
         }
         
@@ -40,7 +40,7 @@ module.exports = {
                          
         if (url === null)
         {
-            session.send("Oops! I could not find this KPI);
+            session.send("Oops! I could not find this KPI');
             return 'Error';
         }
         
