@@ -50,14 +50,14 @@ dialog.matches('KPI', [
          kpi: kpi
         };
 	    
-	if ((kpi != null ) && (kpi.entity === 'cost variance'))
+	/*if ((kpi != null )
 	{
         	session.beginDialog('/costcenter');
 	}
 	else
 	{
 		next();
-	}
+	}*/
     },
     function (session, results) {
 	
@@ -70,8 +70,12 @@ dialog.matches('KPI', [
 	else
 	{	    
 		var kpi = session.dialogData.Data.kpi.entity;
+		
+		session.send('You asked about ' + kpi + '. I am fetching that information...');
+		
+		api.getKpis(session, kpi);
 
-		if (kpi === 'cost variance')
+		/*if (kpi === 'cost variance')
 		{
 			query = 'Cost';
 			api.getKpis(session, query, kpi);
@@ -89,7 +93,7 @@ dialog.matches('KPI', [
 		else
 		{
 			session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
-		}
+		}*/
 	}
 	   	
 	}
@@ -97,7 +101,7 @@ dialog.matches('KPI', [
 
 bot.dialog('/costcenter', [
     function (session) {
-        builder.Prompts.text(session, "I would be happy to get that for you. Can you please tell me your cost center?");
+        builder.Prompts.text(session, "I would be happy to get that for you. Please wait while I ");
     },
     function (session, results) {
 	session.send("I will get it for you now and remember that Cost Center for future reviews.");
