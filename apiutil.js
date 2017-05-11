@@ -33,7 +33,7 @@ module.exports = {
         if (normalizedKpi === null)
         {
             session.send("Oops! I could not find this KPI);
-            return;
+            return 'Error';
         }
         
         var url = urlDictionary[normalizedKpi];
@@ -41,7 +41,7 @@ module.exports = {
         if (url === null)
         {
             session.send("Oops! I could not find this KPI);
-            return;
+            return 'Error';
         }
         
         request.getAsync({
