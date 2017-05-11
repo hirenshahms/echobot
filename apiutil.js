@@ -30,7 +30,7 @@ module.exports = {
     {
         var normalizedKpi = kpiDictionary[kpiTitle];
         
-        session.send('normalizedKpi is ' + normalizedKpi);
+        //session.send('normalizedKpi is ' + normalizedKpi);
         
         if (normalizedKpi === null)
         {
@@ -40,7 +40,7 @@ module.exports = {
         
         var url = urlDictionary[normalizedKpi];
         
-        session.send('url is ' + url);
+        //session.send('url is ' + url);
         
         if (url === null)
         {
