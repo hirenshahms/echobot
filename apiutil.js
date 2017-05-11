@@ -1,8 +1,24 @@
 var request = require('bluebird').promisifyAll(require('request'));
 
 //var url = 'https://508c-r12.apptio.com/biit/api/v2/domains/reference.apptio.com/projects/Cost Transparency/reports/33d03665-aafd-4931-bed9-832ac55c64f1/dates/Jun:FY2016/components/4157';
-//var auth = 'auth=EoGro2e6jLji5gHGdKaUZQ';
-var url = 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd';
+//var url = 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd';
+
+var kpiDictionary = {
+    'total cost' : 'Cost',
+    'total spend' : 'Cost',
+    'overall cost' : 'Cost',
+    'variable cost': '% Variable',
+    'variable spend': '% Variable',
+    'capital cost': '% Capital Spend',
+    'capital spend': '% Capital Spend'
+};
+
+var urlDictionary =
+    {
+        'Cost':'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd',
+        '% Variable' : 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd',
+        '% Capital Spend': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&date=Feb:FY2017&componentId=4157&environment=prd'
+    };
 
 var username = 'dan@reference.apptio.com';
 var password = 'Apptio508!';
@@ -10,8 +26,24 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 module.exports = {
 
-    getKpis(session, kpiType, kpiTitle)
+    getKpis(session, kpi)
     {
+        var normalizedKpi = kpiDictionary[kpi];
+        
+        if (normalizedKpi === null)
+        {
+            session.send("Oops! I could not find this KPI);
+            return;
+        }
+        
+        var url = urlDictionary[normalizedKpi];
+                         
+        if (url === null)
+        {
+            session.send("Oops! I could not find this KPI);
+            return;
+        }
+        
         request.getAsync({
                 url: url,
                 headers: {
@@ -36,7 +68,7 @@ module.exports = {
                     console.log(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     
                 } else {
-                    session.send("Opps! KPI is not available at this time. I received this error: " + response.statusCode);
+                    session.send("Oops! KPI is not available at this time. I received this error: " + response.statusCode);
                     console.log('response code: ' + response.statusCode);
                 }
 
