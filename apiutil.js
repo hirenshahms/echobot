@@ -84,7 +84,7 @@ module.exports = {
                    var kpi = response.body.kpis.filter(function(kp){
                                 return (kp.primaryTitle  === titleDictionary[normalizedKpi]);
                     });
-                    session.send("Your " + kpiTitle + "for " + date + " is " + kpi[0].primaryValue);
+                    session.send("Your " + kpiTitle + " for " + date + " is " + kpi[0].primaryValue);
                     //session.send(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     console.log(kpi[0].primaryTitle + ':' + kpi[0].primaryValue);
                     
