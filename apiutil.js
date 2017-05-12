@@ -17,7 +17,9 @@ var kpiDictionary = {
     'capital cost': '% Capital Spend',
     'capital spend': '% Capital Spend',
     'cloud cost' : 'cloud cost',
-    'cloud spend' : 'cloud cost'  
+    'cloud spend' : 'cloud cost',
+    'cloud compute cost' : 'cloud compute cost',
+    'cloud compute spend' : 'cloud compute cost'     
 };
 
 var titleDictionary = {
@@ -25,6 +27,7 @@ var titleDictionary = {
         '% Variable' : '% Variable',
         '% Capital Spend': '% Capital Spend',
         'cloud cost': 'Cost YTD'
+        'cloud compute cost': 'Cost YTD'
 };
 
 var urlDictionary =
@@ -32,7 +35,8 @@ var urlDictionary =
         'Cost':'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&componentId=4157&environment=prd',
         '% Variable' : 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&componentId=4157&environment=prd',
         '% Capital Spend': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3AIT+Finance+-+Summary&componentId=4157&environment=prd',
-        'cloud cost': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3APublic+Cloud+-+TCO&componentId=4583&environment=prd'
+        'cloud cost': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3APublic+Cloud+-+TCO&componentId=4583&environment=prd',
+        'cloud compute cost': 'https://508c-r12.apptio.com/biit/api/v2/report?reportPath=-@Creference.apptio.com%3ACost+Transparency/Reports/.DateGoesHere/CostModels/Default/.View%3Atab%3AService+Costing/.View%3APublic+Cloud+-+TCO&componentId=4583&environment=prd'        
     };
 
 var username = 'dan@reference.apptio.com';
