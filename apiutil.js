@@ -26,7 +26,7 @@ var titleDictionary = {
         'Cost': 'Cost',
         '% Variable' : '% Variable',
         '% Capital Spend': '% Capital Spend',
-        'cloud cost': 'Cost YTD'
+        'cloud cost': 'Cost YTD',
         'cloud compute cost': 'Cost YTD'
 };
 
