@@ -78,7 +78,7 @@ dialog.matches('KPI', [
 		{
 			session.send('I know you are asking about a KPI. However you also need to specify a valid time period. Please specify a time period and try again');
 		}
-		var month = monthNames[monthNum];
+		var month = monthNames[monthNum-1];
 		var formattedDate = month + ':' + 'FY' + year;
 				
 		session.send('You asked about ' + kpi + ' for ' + formattedDate + '. I am fetching that information...');
