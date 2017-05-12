@@ -55,10 +55,8 @@ dialog.matches('KPI', [
         };
 	
 	var date = builder.EntityRecognizer.findEntity(args.entities, 'builtin.datetime.date');
-        session.dialogData.Data.date = date;
-	    
-	session.send('Date is ' + session.dialogData.Data.date);
-	    
+        session.dialogData.Data.date = date;  
+		    
 	if (session.dialogData.Data.kpi === null)
 	{
 		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
@@ -71,13 +69,12 @@ dialog.matches('KPI', [
 	{	    
 		var kpi = session.dialogData.Data.kpi.entity;
 		var dateval = session.dialogData.Data.date.resolution.date;
-		session.send('Date resolution is ' + dateval);
 		
 		var ss = dateval.split("-");
         	var year = ss[0];
-        	var monthNum = ss[1];
+        	var monthNum = Number(ss[1]);
 		
-		if (year === null || month === null)
+		if (year === null || monthNum === null)
 		{
 			session.send('I know you are asking about a KPI. However you also need to specify a valid time period. Please specify a time period and try again');
 		}
