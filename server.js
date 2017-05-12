@@ -57,6 +57,8 @@ dialog.matches('KPI', [
 	var date = builder.EntityRecognizer.findEntity(args.entities, 'builtin.datetime.date');
         session.dialogData.Data.date = date;
 	    
+	session.send('Date is ' + session.dialogData.Data.date);
+	    
 	if (session.dialogData.Data.kpi === null)
 	{
 		session.send('I know you are asking about a KPI. However I have not yet learnt how to fetch that information!');
@@ -69,8 +71,9 @@ dialog.matches('KPI', [
 	{	    
 		var kpi = session.dialogData.Data.kpi.entity;
 		var dateval = session.dialogData.Data.date.resolution.date;
+		session.send('Date resolution is ' + dateval);
 		
-		var ss = date.split("-");
+		var ss = dateval.split("-");
         	var year = ss[0];
         	var monthNum = ss[1];
 		
