@@ -2,6 +2,10 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var api = require('./apiutil');
 
+var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
 // Get secrets from server environment
 var botConnectorOptions = { 
     appId: process.env.BOTFRAMEWORK_APPID, 
@@ -66,9 +70,20 @@ dialog.matches('KPI', [
 		var kpi = session.dialogData.Data.kpi.entity;
 		var dateval = session.dialogData.Data.date.resolution.date;
 		
-		session.send('You asked about ' + kpi + ' for ' + dateval + '. I am fetching that information...');
+		var ss = date.split("-");
+        	var year = ss[0];
+        	var monthNum = ss[1];
 		
-		api.getKpis(session, kpi, dateval);		
+		if (year === null || month === null)
+		{
+			session.send('I know you are asking about a KPI. However you also need to specify a valid time period. Please specify a time period and try again');
+		}
+		var month = monthNames[monthNum];
+		var formattedDate = month + ':' + 'FY' + year;
+				
+		session.send('You asked about ' + kpi + ' for ' + formattedDate + '. I am fetching that information...');
+		
+		api.getKpis(session, kpi, formattedDate);		
 	}
 	
     },
